@@ -43,7 +43,7 @@ export default function CoreHROverview({ onNavigate }: CoreHROverviewProps) {
   return (
     <div className="flex flex-col gap-6 p-6">
       <div>
-        <h2 className="text-3xl font-bold tracking-tight">Core HR Management</h2>
+        <h2 className="text-3xl font-bold tracking-tight">HR Management</h2>
         <p className="text-muted-foreground">Manage your organization's core HR functions and employee data.</p>
       </div>
 

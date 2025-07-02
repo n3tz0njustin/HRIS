@@ -2,19 +2,29 @@
 
 import { createContext, useContext, useState, type ReactNode } from "react"
 
-export type UserRole = "admin" | "hr" | "manager" | "employee"
+interface User {
+  id: string
+  name: string
+  email: string
+  role: "admin" | "hr" | "manager" | "employee"
+}
 
 interface UserContextType {
-  userRole: UserRole
-  setUserRole: (role: UserRole) => void
+  user: User
+  setUser: (user: User) => void
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined)
 
 export function UserProvider({ children }: { children: ReactNode }) {
-  const [userRole, setUserRole] = useState<UserRole>("admin")
+  const [user, setUser] = useState<User>({
+    id: "1",
+    name: "John Doe",
+    email: "john.doe@company.com",
+    role: "admin",
+  })
 
-  return <UserContext.Provider value={{ userRole, setUserRole }}>{children}</UserContext.Provider>
+  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
 }
 
 export function useUser() {
